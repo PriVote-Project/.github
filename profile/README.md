@@ -36,7 +36,7 @@
     <a href="https://github.com/Privote-project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Privote-project">View Demo</a>
+    <a href="https://ethglobal.com/showcase/privote-hertg">View Demo</a>
     ·
     <a href="https://github.com/Privote-project/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -54,14 +54,8 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#constituents">Constituents</a></li>
+    <li><a href="#problems-we-solve">Problems We Solve</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -74,7 +68,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](images/home.png)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/PriVote-Project/.github/blob/main/profile/images/home.png)
 
 Privote is a decentralized voting mechanism that allows users to vote on-chain in a private and secure manner. It uses [Maci](https://maci.pse.dev/) protocol made by PSE team to ensure that votes don't leak and are not tampered with. The project is open-source and anyone can contribute to it.
 Privote enables users to create various types of private polls and vote on them. It also provides various types of auth mechanisms like Anon-Aadhar (aadhar based verification from India), WorldCoin-auth, NFC (can be used in IRL events like ethglobal hackathons), etc, enabling holding of various interesting polls without revealing the choice of voters.
@@ -85,72 +79,64 @@ Privote enables users to create various types of private polls and vote on them.
 
 - [![Next][Next.js]][Next-url]
 - [![React][React.js]][React-url]
-- [![Vue][Vue.js]][Vue-url]
-- [![Angular][Angular.io]][Angular-url]
-- [![Svelte][Svelte.dev]][Svelte-url]
-- [![Laravel][Laravel.com]][Laravel-url]
-- [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-- [![JQuery][JQuery.com]][JQuery-url]
+- [Hardhat](https://hardhat.org/)
+- [Maci](https://maci.pse.dev/)
+- [Chainlink](https://chain.link)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
+<!-- Constituents -->
 
-## Getting Started
+## Constituents
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Privote is made up of the following components:
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/Privote-project.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin Privote-project
-   git remote -v # confirm the changes
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- **[Frontend](https://github.com/Privote-project/privote-frontend)** - The UI for Privote that allows users to create different types of polls and handle voting procedure smoothly.
+- **[Maci-Docker](https://github.com/Privote-project/maci-docker)** - The docker image for the [Maci](https://maci.pse.dev/) protocol flow to publish votes easily. Users publishing votes from the frontend can use this docker image to publish votes in few commands.
+  Privote deploys the Maci-Docker image on a server and uses it to provide users options to publish votes on-chain directly from the frontend.
+- **[Contracts](https://github.com/Privote-project/privote-contracts)** - The smart contracts for Privote on which the whole voting mechanism is based. The contracts integrate
+  - [Maci](https://maci.pse.dev/) - The protocol for private voting
+  - [Chainlink](https://chain.link) - Uses Chainlink CCIP to enable usage of Privote from multiple chains.
+  - [Anon-Aadhar](https://pse.dev/projects/anon-aadhaar) - Aadhar based verification for Indian users
+  - [WorldCoin](https://worldcoin.org/) - WorldCoin based verification for global users
+  - [NFC](https://en.wikipedia.org/wiki/Near-field_communication) - NFC based verification for IRL events like EthGlobal hackathons
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+## Problems We Solve
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+1. **On-chain Vote Visibility**:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+- Problem: Traditional on-chain voting mechanisms expose voter choices publicly, which can lead to voter hesitance and resistance due to privacy concerns.
+- Solution: We utilize the Maci protocol for private voting, ensuring that votes remain confidential and only the final tally is revealed.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+2. **Lack of Ways to Avoid Bad Actors (Multiple Voting, etc.)**:
+
+- Problem: Traditional on-chain voting mechanisms lack ways to prevent bad actors from voting multiple times or manipulating the voting process. People can create multiple wallets, etc, to dodge the system.
+- Solution: We use various auth mechanisms like Anon-Aadhar, WorldCoin-auth, NFC, etc, to ensure that only legitimate users can vote as per the rules auth of organizers.
+
+3. **Bribery and Coercion**:
+
+- Problem: Traditional on-chain voting mechanisms are susceptible to bribery and coercion, as voters can be forced to reveal their choices as can be verified on-chain.
+- Solution: With Privote, voters can vote privately, ensuring that their choices remain confidential and cannot be verified on-chain, leaving no incentive for bribers or coercers.
+
+4. **Lack of Cross-chain Compatibility**:
+
+- Problem: With advent of various L2s and other chains, chain limitation have got real, people having tokens on different chains can't interact with dapps on other chains.
+- Solution: We use Chainlink CCIP to enable usage of Privote from multiple chains, enabling users to vote from any chain they have tokens on.
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+- <input disabled="" type="checkbox"> More Auth Mechanisms
+  We will be integrating more on-chain authentication mechanisms like Open Passport to make the dApp more generic.
+
+- <input disabled="" type="checkbox"> Further Plans
+  Other Features: Make things more automated, UI more inclusive, etc.
+
+- <input disabled="" type="checkbox"> Vote Without Wallet
+  There may be a market for paid polling through this mechanism that allows users to directly vote with NFC, etc., without the need for funds.
 
 See the [open issues](https://github.com/Privote-project/issues) for a full list of proposed features (and known issues).
 
@@ -173,12 +159,6 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Top contributors:
-
-<a href="https://github.com/Privote-project/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Privote-project" alt="contrib.rocks image" />
-</a>
-
 <!-- LICENSE -->
 
 ## License
@@ -191,7 +171,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - [@lordforever](https://twitter.com/lordforever) - shashanktrivedi1917.com
 
 Project Link: [https://github.com/Privote-project](https://github.com/Privote-project)
 
@@ -201,9 +181,9 @@ Project Link: [https://github.com/Privote-project](https://github.com/Privote-pr
 
 ## Acknowledgments
 
-- []()
-- []()
-- []()
+We extend our deepest gratitude to the mentors from EthSingapore, Maci, Chainlink, Worldcoin, and all the other organizations who generously shared their time, expertise, and guidance throughout this journey. Your support was invaluable in helping us navigate challenges, refine our ideas, and ultimately bring this project to fruition.
+
+Thank you for inspiring us and pushing us to reach our full potential. We are truly grateful for the opportunity to have learned from such talented and passionate individuals.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -222,7 +202,7 @@ Project Link: [https://github.com/Privote-project](https://github.com/Privote-pr
 [license-url]: https://github.com/Privote-project/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/home.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
