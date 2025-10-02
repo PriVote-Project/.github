@@ -36,7 +36,7 @@
     <a href="https://github.com/Privote-project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://ethglobal.com/showcase/privote-hertg">View Demo</a>
+    <a href="https://privote.live">Privote</a>
     ·
     <a href="https://github.com/Privote-project/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -169,7 +169,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@lordforever](https://twitter.com/lordforever) - shashanktrivedi1917.com
+Your Name - [@0xlord_forever](https://x.com/0xlord_forever) - privote.live@gmail.com
 
 Project Link: [https://github.com/Privote-project](https://github.com/Privote-project)
 
@@ -179,7 +179,7 @@ Project Link: [https://github.com/Privote-project](https://github.com/Privote-pr
 
 ## Acknowledgments
 
-We extend our deepest gratitude to the mentors from EthSingapore, Maci, Chainlink, Worldcoin, and all the other organizations who generously shared their time, expertise, and guidance throughout this journey. Your support was invaluable in helping us navigate challenges, refine our ideas, and ultimately bring this project to fruition.
+We extend our deepest gratitude to the mentors from PSE, Maci, porto, and all the other organizations who generously shared their time, expertise, and guidance throughout this journey. Your support was invaluable in helping us navigate challenges, refine our ideas, and ultimately bring this project to fruition.
 
 Thank you for inspiring us and pushing us to reach our full potential. We are truly grateful for the opportunity to have learned from such talented and passionate individuals.
 
