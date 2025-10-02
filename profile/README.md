@@ -71,7 +71,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://github.com/PriVote-Project/.github/blob/main/profile/images/home.png)
 
 Privote is a decentralized voting mechanism that allows users to vote on-chain in a private and secure manner. It uses [Maci](https://maci.pse.dev/) protocol made by PSE team to ensure that votes don't leak and are not tampered with. The project is open-source and anyone can contribute to it.
-Privote enables users to create various types of private polls and vote on them. It also provides various types of auth mechanisms like Anon-Aadhar (aadhar based verification from India), WorldCoin-auth, NFC (can be used in IRL events like ethglobal hackathons), etc, enabling holding of various interesting polls without revealing the choice of voters.
+Privote enables users to create various types of private polls and vote on them. It also provides various types of auth mechanisms like Anon-Aadhar (aadhar based verification from India), gitcoin passport, nfts, tokens, etc, enabling holding of various interesting polls without revealing the choice of voters.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,10 +96,8 @@ Privote is made up of the following components:
   Privote deploys the Maci-Docker image on a server and uses it to provide users options to publish votes on-chain directly from the frontend.
 - **[Contracts](https://github.com/Privote-project/privote-contracts)** - The smart contracts for Privote on which the whole voting mechanism is based. The contracts integrate
   - [Maci](https://maci.pse.dev/) - The protocol for private voting
-  - [Chainlink](https://chain.link) - Uses Chainlink CCIP to enable usage of Privote from multiple chains.
   - [Anon-Aadhar](https://pse.dev/projects/anon-aadhaar) - Aadhar based verification for Indian users
-  - [WorldCoin](https://worldcoin.org/) - WorldCoin based verification for global users
-  - [NFC](https://en.wikipedia.org/wiki/Near-field_communication) - NFC based verification for IRL events like EthGlobal hackathons
+
 
 <!-- USAGE EXAMPLES -->
 
@@ -120,23 +118,23 @@ Privote is made up of the following components:
 - Problem: Traditional on-chain voting mechanisms are susceptible to bribery and coercion, as voters can be forced to reveal their choices as can be verified on-chain.
 - Solution: With Privote, voters can vote privately, ensuring that their choices remain confidential and cannot be verified on-chain, leaving no incentive for bribers or coercers.
 
-4. **Lack of Cross-chain Compatibility**:
+4. **UX complexity**:
 
-- Problem: With advent of various L2s and other chains, chain limitation have got real, people having tokens on different chains can't interact with dapps on other chains.
-- Solution: We use Chainlink CCIP to enable usage of Privote from multiple chains, enabling users to vote from any chain they have tokens on.
+- Problem: Using any web3 dapp comes with its UX complexity around wallets, let alone having gas, multiple chains, etc.
+- Solution: We provide easy on-boarding to privote for users with email, passkey using [porto](https://porto.sh) along with traditional wallets catering to different users. With porto we aim to abstract multiple chains for users giving them as smooth flow as possible.
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
 - <input disabled="" type="checkbox"> More Auth Mechanisms
-  We will be integrating more on-chain authentication mechanisms like Open Passport to make the dApp more generic.
+  We will be integrating more on-chain authentication mechanisms like emails, etc to make the dApp more generic.
 
 - <input disabled="" type="checkbox"> Further Plans
   Other Features: Make things more automated, UI more inclusive, etc.
 
 - <input disabled="" type="checkbox"> Vote Without Wallet
-  There may be a market for paid polling through this mechanism that allows users to directly vote with NFC, etc., without the need for funds.
+  There may be a market for paid polling through this mechanism that allows users to directly vote with gas sponsorships, etc., without the need for funds.
 
 See the [open issues](https://github.com/Privote-project/issues) for a full list of proposed features (and known issues).
 
